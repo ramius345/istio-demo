@@ -9,6 +9,7 @@ spec:
       mtls:
         enabled: true
       disablePolicyChecks: false
+      policyCheckFailOpen: true
       proxy:
         resources:
           requests:
@@ -64,7 +65,7 @@ spec:
         limits:
           cpu: 500m
           memory: 128Mi
-      traceSampling: 100
+      traceSampling: 5
     kiali:
       enabled: true
       dashboard:
@@ -78,7 +79,7 @@ spec:
         elasticsearch:
           nodeCount: 3
           storage:
-            storageClassName: "storagecluster-ceph-rbd"
+            storageClassName: "gp2"
             size: "50Gi"
           redundancyPolicy: "SingleRedundancy"
           resources:
